@@ -1,0 +1,3 @@
+﻿  Sortowania.cpp
+C:\Users\Piotrek\Desktop\PodstawyProgramowania\Sortowania\Sortowania\Sortowania.cpp(9,14): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  Sortowania.vcxproj -> C:\Users\Piotrek\Desktop\PodstawyProgramowania\Sortowania\x64\Debug\Sortowania.exe
