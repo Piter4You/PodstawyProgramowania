@@ -1,0 +1,3 @@
+﻿  Saper.cpp
+C:\Users\Piotrek\Desktop\PodstawyProgramowania\Saper\Saper\Saper.cpp(94,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Saper.vcxproj -> C:\Users\Piotrek\Desktop\PodstawyProgramowania\Saper\x64\Debug\Saper.exe

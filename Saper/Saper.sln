@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Saper", "Saper\Saper.vcxproj", "{6A0DE78F-707F-48DF-98B5-46F62E38B891}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Debug|x64.ActiveCfg = Debug|x64
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Debug|x64.Build.0 = Debug|x64
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Debug|x86.ActiveCfg = Debug|Win32
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Debug|x86.Build.0 = Debug|Win32
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Release|x64.ActiveCfg = Release|x64
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Release|x64.Build.0 = Release|x64
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Release|x86.ActiveCfg = Release|Win32
+		{6A0DE78F-707F-48DF-98B5-46F62E38B891}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33D30ADE-F358-4E1E-875F-605277930D2C}
+	EndGlobalSection
+EndGlobal
