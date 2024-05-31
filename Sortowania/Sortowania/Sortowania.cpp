@@ -4,39 +4,43 @@
 #include <chrono>
 #include <sstream>
 #include <algorithm>
+#include <functional>
 
-void bubbleSort(std::vector<int>& numbers) {
+void bubbleSort(std::vector<int>& numbers, std::function<bool(int, int)> compare) {
+    auto swap = [](int& a, int& b) { std::swap(a, b); };
     int size = numbers.size();
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size - 1; j++) {
-            if (numbers[j] > numbers[j + 1]) {
-                std::swap(numbers[j], numbers[j + 1]);
+            if (compare(numbers[j + 1], numbers[j])) {
+                swap(numbers[j], numbers[j + 1]);
             }
         }
     }
 }
 
-void insertionSort(std::vector<int>& numbers) {
+void insertionSort(std::vector<int>& numbers, std::function<bool(int, int)> compare) {
+    auto move = [](std::vector<int>& nums, int from, int to) { nums[to] = nums[from]; };
     for (int i = 1; i < numbers.size(); i++) {
         int key = numbers[i];
         int j = i - 1;
-        while (j >= 0 && numbers[j] > key) {
-            numbers[j + 1] = numbers[j];
+        while (j >= 0 && compare(key, numbers[j])) {
+            move(numbers, j, j + 1);
             j--;
         }
         numbers[j + 1] = key;
     }
 }
 
-void selectionSort(std::vector<int>& numbers) {
+void selectionSort(std::vector<int>& numbers, std::function<bool(int, int)> compare) {
+    auto swap = [](int& a, int& b) { std::swap(a, b); };
     for (int i = 0; i < numbers.size() - 1; i++) {
-        int minIdx = i;
+        int extremeIdx = i;
         for (int j = i + 1; j < numbers.size(); j++) {
-            if (numbers[j] < numbers[minIdx]) {
-                minIdx = j;
+            if (compare(numbers[j], numbers[extremeIdx])) {
+                extremeIdx = j;
             }
         }
-        std::swap(numbers[minIdx], numbers[i]);
+        swap(numbers[extremeIdx], numbers[i]);
     }
 }
 
@@ -83,17 +87,25 @@ int main() {
     std::cout << "Wybierz metode sortowania: \n1. Sortowanie babelkowe \n2. Sortowanie przez wstawianie\n3. Sortowanie przez wybieranie\nWybor: ";
     std::cin >> choice;
 
+    bool ascending;
+    std::cout << "Wybierz kierunek sortowania: \n1. Rosnaco \n2. Malejaco\nWybor: ";
+    int orderChoice;
+    std::cin >> orderChoice;
+    ascending = (orderChoice == 1);
+
+    auto compare = ascending ? [](int a, int b) { return a < b; } : [](int a, int b) { return a > b; };
+
     auto start = std::chrono::high_resolution_clock::now();
 
     switch (choice) {
     case 1:
-        bubbleSort(numbers);
+        bubbleSort(numbers, compare);
         break;
     case 2:
-        insertionSort(numbers);
+        insertionSort(numbers, compare);
         break;
     case 3:
-        selectionSort(numbers);
+        selectionSort(numbers, compare);
         break;
     default:
         std::cout << "Nieprawidlowy wybor, prosze wybrac poprawny numer metody sortowania." << std::endl;
